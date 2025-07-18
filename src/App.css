@@ -1,0 +1,33 @@
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+}
+
+#dark {
+  background-color: #202d36;
+}
+
+.card {
+  max-width: 22%;
+  min-width: 200px;
+  box-sizing: border-box;
+}
+
+.filter-container {
+  margin-top: 35px;
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+@media (max-width: 900px) {
+  .filter-container {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+}
