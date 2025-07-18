@@ -1,26 +1,19 @@
-import { createContext, useEffect, useState } from "react";
+import {useEffect, useState } from "react";
 import { Countryapi } from "./api/api";
-import type { Country } from "./types/countries";
+import type { Country } from "./types/Countries";
 import { Header } from "./components/Header";
 import { CountryCard } from "./components/CountryCard";
 import "./App.css";
 import { Search } from "./components/Search";
 import { Filter } from "./components/Filter";
-import type { SearchContextType, ThemeContextType } from "./types/Context";
+import { SearchContext, ThemeContext } from "./context/Context";
 
 
 
 
-export const ThemeContext = createContext<ThemeContextType>({
-  theme: "light",
-  toggleTheme: () => {}, 
-});
 
 
-export const SearchContext = createContext<SearchContextType>({
-  searchTerm: "",
-  setSearchTerm: () => {},
-});
+
 
 function App() {
   const [data, setData] = useState<Country[]>([]);

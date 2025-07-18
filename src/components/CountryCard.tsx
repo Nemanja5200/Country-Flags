@@ -1,4 +1,4 @@
-import type { Country } from "../types/countries";
+import type { Country } from "../types/Countries";
 import "../styles/CountryCard.css";
 type CountryCardProps = {
   country: Country;
