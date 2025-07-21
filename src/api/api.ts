@@ -24,7 +24,7 @@ class CountryApi {
 
   async GetCountry(name: string): Promise<Country> {
     const response = await api.get(
-      `name/${name}?fields=name,capital,region,population,flags`,
+      `name/${name}?fields=name,capital,region,population,flags,borders,subregion,tld,currencies,languages`,
     );
 
     const country = response.data[0];

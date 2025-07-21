@@ -1,18 +1,27 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import "../styles/Search.css";
 import { SearchContext } from "../context/Context";
 
 export const Search = () => {
-  const { searchTerm, setSearchTerm } = useContext(SearchContext);
+  const { setSearchTerm } = useContext(SearchContext);
+  const [localSearchTerm, setLocalSearchTerm] = useState("");
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchTerm(e.target.value);
+    setLocalSearchTerm(e.target.value);
   };
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setSearchTerm(localSearchTerm);
+    }, 200);
+
+    return () => clearTimeout(timer);
+  }, [localSearchTerm, setSearchTerm]);
 
   return (
     <div className="search">
       <input
-        value={searchTerm}
+        value={localSearchTerm}
         onChange={handleSearch}
         type="text"
         placeholder="Search for a country..."
