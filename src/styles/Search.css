@@ -21,11 +21,11 @@
 
 #dark .search input {
   background-color: #2b3743;
-  color: #BDC7D1;
+  color: #bdc7d1;
 }
 
 #dark .search input::placeholder {
-  color: #BDC7D1;
+  color: #bdc7d1;
 }
 
 .search {

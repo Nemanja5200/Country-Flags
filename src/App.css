@@ -1,7 +1,7 @@
 .cards-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, auto));
-  justify-content: space-evenly;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  /* justify-content: center; */
 }
 
 #dark {
@@ -9,10 +9,8 @@
 }
 
 .card {
-  max-width: 22%;
   min-width: 200px;
   box-sizing: border-box;
-
 }
 
 .filter-container {
@@ -30,4 +28,9 @@
     gap: 10px;
     justify-items: center;
   }
+}
+
+.App {
+  min-height: 100vh;
+  background-color: inherit;
 }

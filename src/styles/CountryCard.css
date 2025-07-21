@@ -3,6 +3,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  justify-self: center;
 }
 
 .img {
@@ -13,24 +14,21 @@
   margin-bottom: 0;
 }
 
-
-
 #lifgh .info {
   background-color: #fff;
 }
 
 #dark .info {
   background-color: #2b3743;
-  color: #BDC7D1
+  color: #bdc7d1;
 }
 
 #dark .info strong,
 #dark .info b,
 #dark .info h2 {
-  color:  #fcffff;  
+  color: #fcffff;
   font-weight: bold;
 }
-
 
 .info {
   width: 250px;
