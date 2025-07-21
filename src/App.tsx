@@ -1,15 +1,11 @@
-import { useEffect, useState } from "react";
-import { Countryapi } from "./api/api";
-import type { Country } from "./types/Countries";
-import { Header } from "./components/Header";
-import { CountryCard } from "./components/CountryCard";
-import "./App.css";
-import { Search } from "./components/Search";
-import { Filter } from "./components/Filter";
+import { useState, useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
+import { Header } from "./components";
+import { Home } from "./pages/Home";
 import { FilterContext, SearchContext, ThemeContext } from "./context/Context";
+import "./App.css";
 
 function App() {
-  const [data, setData] = useState<Country[]>([]);
   const [theme, SetTheme] = useState(() => {
     return localStorage.getItem("theme") || "light";
   });
@@ -25,51 +21,21 @@ function App() {
   };
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const responce = await Countryapi.GetCountries();
-        console.log(responce);
-        setData(responce);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    fetchData();
-  }, []);
-  useEffect(() => {
     document.body.className = theme;
   }, [theme]);
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      <SearchContext value={{ searchTerm, setSearchTerm }}>
-        <FilterContext value={{ filterRegion, setFilterRegion }}>
+      <SearchContext.Provider value={{ searchTerm, setSearchTerm }}>
+        <FilterContext.Provider value={{ filterRegion, setFilterRegion }}>
           <div className="App" id={theme}>
             <Header />
-            <div className="filter-container">
-              <Search />
-              <Filter />
-            </div>
-            <div className="cards-container">
-              {data
-                .filter((country) => {
-                  const matchSearch =
-                    searchTerm === "" ||
-                    country.name
-                      .toLocaleLowerCase()
-                      .includes(searchTerm.toLocaleLowerCase());
-                  const matchFilter =
-                    filterRegion === "" ||
-                    country.region.toLowerCase() === filterRegion.toLowerCase();
-                  return matchSearch && matchFilter;
-                })
-                .map((country, idx) => (
-                  <CountryCard key={country.name + idx} country={country} />
-                ))}
-            </div>
+            <Routes>
+              <Route path="/" element={<Home />} />
+            </Routes>
           </div>
-        </FilterContext>
-      </SearchContext>
+        </FilterContext.Provider>
+      </SearchContext.Provider>
     </ThemeContext.Provider>
   );
 }

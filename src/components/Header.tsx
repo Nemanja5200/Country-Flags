@@ -8,7 +8,7 @@ export const Header = () => {
   return (
     <div className="header">
       <header>
-        <h1> Where in the world?</h1>
+        <h1>Where in the world?</h1>
       </header>
       <div className="darkmode">
         <button onClick={toggleTheme}>Dark Mode</button>

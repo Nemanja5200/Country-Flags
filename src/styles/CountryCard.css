@@ -14,7 +14,7 @@
   margin-bottom: 0;
 }
 
-#lifgh .info {
+#light .info {
   background-color: #fff;
 }
 
@@ -45,4 +45,8 @@
   margin-top: 20px;
   font-size: 1rem;
   font-weight: bold;
+}
+
+.card:hover {
+  transform: translateY(-2px);
 }

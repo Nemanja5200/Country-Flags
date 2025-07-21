@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState, type ChangeEvent } from "react";
 import "../styles/Search.css";
 import { SearchContext } from "../context/Context";
 
@@ -6,14 +6,14 @@ export const Search = () => {
   const { setSearchTerm } = useContext(SearchContext);
   const [localSearchTerm, setLocalSearchTerm] = useState("");
 
-  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
     setLocalSearchTerm(e.target.value);
   };
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setSearchTerm(localSearchTerm);
-    }, 200);
+    }, 500);
 
     return () => clearTimeout(timer);
   }, [localSearchTerm, setSearchTerm]);

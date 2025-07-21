@@ -1,5 +1,6 @@
 import type { Country } from "../types/Countries";
 import "../styles/CountryCard.css";
+import { Link } from "react-router-dom";
 type CountryCardProps = {
   country: Country;
 };
@@ -7,7 +8,12 @@ type CountryCardProps = {
 export const CountryCard = ({ country }: CountryCardProps) => {
   return (
     <div className="card">
-      <img className="img" src={country.flag} alt="Flag" />
+      <Link
+        to={`/country/${encodeURIComponent(country.name)}`}
+        className="card-content-link"
+      >
+        <img className="img" src={country.flag} alt="Flag" />
+      </Link>
       <div className="info">
         <h2>{country.name}</h2>
         <p>
