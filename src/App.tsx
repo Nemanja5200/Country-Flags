@@ -11,10 +11,6 @@ import { SearchContext, ThemeContext } from "./context/Context";
 
 
 
-
-
-
-
 function App() {
   const [data, setData] = useState<Country[]>([]);
   const [theme, SetTheme] = useState("light");

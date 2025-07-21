@@ -1,5 +1,5 @@
 .card {
-  margin: 50px;
+  margin: 30px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -21,7 +21,7 @@
 
 #dark .info {
   background-color: #2b3743;
-  color: #BDC7D1;
+  color: #BDC7D1
 }
 
 #dark .info strong,
