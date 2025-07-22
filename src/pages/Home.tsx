@@ -18,6 +18,15 @@ export const Home = () => {
         const response = await Countryapi.GetCountries();
         console.log(response);
         setData(response);
+        const lookup = response.reduce(
+          (acc, country) => {
+            acc[country.cca3] = country.name;
+            return acc;
+          },
+          {} as { [code: string]: string },
+        );
+
+        localStorage.setItem("countryMap", JSON.stringify(lookup));
       } catch (error) {
         console.error(error);
       }

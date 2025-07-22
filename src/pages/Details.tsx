@@ -6,9 +6,9 @@ import "../styles/Details.css";
 
 export const Details = () => {
   const { countryName } = useParams<{ countryName: string }>();
-
   const [data, setData] = useState<CountryDetails | null>(null);
   const [loading, setLoading] = useState(true);
+  const [countryMap, setCountryMap] = useState<{ [code: string]: string }>({});
 
   useEffect(() => {
     const fetchData = async () => {
@@ -29,6 +29,13 @@ export const Details = () => {
 
     fetchData();
   }, [countryName]);
+
+  useEffect(() => {
+    const savedMap = localStorage.getItem("countryMap");
+    if (savedMap) {
+      setCountryMap(JSON.parse(savedMap));
+    }
+  }, []);
 
   if (loading) {
     return <div className="loading">Loading...</div>;
@@ -111,7 +118,7 @@ export const Details = () => {
                 <div className="border-buttons">
                   {data.borders.map((border) => (
                     <button key={border} className="border-button">
-                      {border}
+                      {countryMap[border]}
                     </button>
                   ))}
                 </div>

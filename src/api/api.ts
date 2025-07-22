@@ -28,7 +28,9 @@ class CountryApi {
       `name/${name}?fields=name,capital,region,population,flags,borders,subregion,tld,currencies,languages,nativeName`,
     );
 
-    const country = response.data[0];
+    const country = response.data.find(
+      (country: CountryApiResponse) => country.name.common === name,
+    );
     return parseCountryDetails(country);
   }
 }
