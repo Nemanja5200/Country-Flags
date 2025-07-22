@@ -117,9 +117,11 @@ export const Details = () => {
                 </p>
                 <div className="border-buttons">
                   {data.borders.map((border) => (
-                    <button key={border} className="border-button">
-                      {countryMap[border]}
-                    </button>
+                    <Link key={border} to={`/country/${countryMap[border]}`}>
+                      <button className="border-button">
+                        {countryMap[border]}
+                      </button>
+                    </Link>
                   ))}
                 </div>
               </div>

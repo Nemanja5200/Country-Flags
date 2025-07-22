@@ -31,6 +31,9 @@
   border: none;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
 }
 .back-button {
   padding: 0.75rem 2rem;

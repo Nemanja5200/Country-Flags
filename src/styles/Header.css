@@ -36,7 +36,7 @@
   font-size: 16px;
 }
 
-.darkmode{
+.darkmode {
   display: flex;
   gap: 3px;
   flex-direction: row;
