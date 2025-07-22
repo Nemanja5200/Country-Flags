@@ -1,6 +1,10 @@
 import axios from "axios";
-import type { Country, CountryApiResponse } from "../types/Countries";
-import { parseCountry } from "../utils/Parser";
+import type {
+  Country,
+  CountryApiResponse,
+  CountryDetails,
+} from "../types/Countries";
+import { parseCountry, parseCountryDetails } from "../utils/Parser";
 
 const BASE_URL = "https://restcountries.com/v3.1/";
 
@@ -19,13 +23,13 @@ class CountryApi {
     );
   }
 
-  async GetCountry(name: string): Promise<Country> {
+  async GetCountry(name: string): Promise<CountryDetails> {
     const response = await api.get(
-      `name/${name}?fields=name,capital,region,population,flags,borders,subregion,tld,currencies,languages`,
+      `name/${name}?fields=name,capital,region,population,flags,borders,subregion,tld,currencies,languages,nativeName`,
     );
 
     const country = response.data[0];
-    return parseCountry(country);
+    return parseCountryDetails(country);
   }
 }
 

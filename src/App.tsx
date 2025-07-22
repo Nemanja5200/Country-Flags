@@ -4,6 +4,7 @@ import { Header } from "./components";
 import { Home } from "./pages/Home";
 import { FilterContext, SearchContext, ThemeContext } from "./context/Context";
 import "./App.css";
+import { Details } from "./pages/Details";
 
 function App() {
   const [theme, SetTheme] = useState(() => {
@@ -32,6 +33,7 @@ function App() {
             <Header />
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/country/:countryName" element={<Details />} />
             </Routes>
           </div>
         </FilterContext.Provider>
