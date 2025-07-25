@@ -92,7 +92,7 @@ export const Details = () => {
                   <b>Top Level Domain:</b> <span>{data.tld.join(", ")}</span>
                 </p>
                 <p>
-                  <b>Currencies:</b>{" "}
+                  <b>Currencies:</b>
                   <span>
                     {" "}
                     {Object.entries(data.currencies)
